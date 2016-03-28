@@ -8,7 +8,8 @@
     "gulp-uglify": "1.2.0",
     "main-bower-files": "2.11.1",
     "gulp-load-plugins": "1.2.0",
-    "bower-sync": "0.1.1",
+    "gulp-define-module": "0.1.4",
+    "gulp-filter": "4.0.0",
     "rimraf": "2.2.8",
     "wrench": "1.5.8"
   }

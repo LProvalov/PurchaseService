@@ -8,7 +8,8 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify");
 
 var paths = {
-    webroot: "./wwwroot/"
+    webroot: "./wwwroot/",
+    views: "./Views/",
 };
 
 paths.js = paths.webroot + "js/**/*.js";
@@ -17,6 +18,7 @@ paths.css = paths.webroot + "css/**/*.css";
 paths.minCss = paths.webroot + "css/**/*.min.css";
 paths.concatJsDest = paths.webroot + "js/site.min.js";
 paths.concatCssDest = paths.webroot + "css/site.min.css";
+paths.concatCssDev = paths.webroot + "css/site.dev.css";
 
 gulp.task("clean:js", function (cb) {
     rimraf(paths.concatJsDest, cb);
@@ -24,6 +26,7 @@ gulp.task("clean:js", function (cb) {
 
 gulp.task("clean:css", function (cb) {
     rimraf(paths.concatCssDest, cb);
+    rimraf(paths.concatCssDev, cb);
 });
 
 gulp.task("clean", ["clean:js", "clean:css"]);
@@ -35,25 +38,17 @@ gulp.task("min:js", function () {
         .pipe(gulp.dest("."));
 });
 
+gulp.task("dev:css", function () {
+    return gulp.src([paths.css, paths.views + "**/*.css", "!" + paths.minCss, "!" + paths.concatCssDest, "!" + paths.concatCssDev])
+    .pipe(concat(paths.concatCssDev))
+    .pipe(gulp.dest("."));
+});
+
 gulp.task("min:css", function () {
-    return gulp.src([paths.css, "!" + paths.minCss])
+    return gulp.src([paths.css, paths.views + "**/*.css", "!" + paths.minCss, "!" + paths.concatCssDev, "!" + paths.concatCssDest])
         .pipe(concat(paths.concatCssDest))
         .pipe(cssmin())
         .pipe(gulp.dest("."));
 });
 
-gulp.task("min", ["min:js", "min:css"]);
-
-/*
-var gulp = require('gulp');
-var wrench = require('wrench');
-
-wrench.readdirSyncRecursive('./gulp').filter(function (file) {
-    return (/\.(js)$/i).test(file);
-}).map(function (file) {
-    require('./gulp/' + file);
-});
-
-gulp.task('default', function () { });
-
-*/
+gulp.task("min", ["min:js", "dev:css", "min:css"]);
