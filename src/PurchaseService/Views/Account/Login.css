@@ -1,5 +1,4 @@
-
-.purchase-login {
+﻿.purchase-login {
     height: 100%;
     margin-top: 5em;
     display: table;
@@ -64,14 +63,4 @@
         min-width: 600px;
         max-width: 600px;
     }
-}
-
-/* Home Index.html */
-
-.purchase-home{
-
-}
-
-.purchase-home .under-construction-img{
-    
 }

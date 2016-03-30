@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
+﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
+using PurchaseService.vNextConfiguration;
 
 namespace PurchaseService
 {
@@ -21,7 +19,6 @@ namespace PurchaseService
 
             if (env.IsDevelopment())
             {
-                // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
             Configuration = builder.Build();
@@ -32,10 +29,8 @@ namespace PurchaseService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
+            services.ConfigurePurchaseMvc();
             services.AddApplicationInsightsTelemetry(Configuration);
-
-            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,17 +52,17 @@ namespace PurchaseService
             }
 
             app.UseIISPlatformHandler();
-
             app.UseApplicationInsightsExceptionTelemetry();
 
+            app.ConfigureAuthentication();
             app.UseStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseMvc();
         }
 
         // Entry point for the application.
