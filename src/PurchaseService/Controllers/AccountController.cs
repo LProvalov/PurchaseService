@@ -8,20 +8,21 @@ using System.Threading.Tasks;
 
 namespace PurchaseService.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
-        [AllowAnonymous]
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
+        
         [HttpPost]
         public async Task<IActionResult> Login([FromBody]UserLogin user)
         {
-            if (!string.IsNullOrWhiteSpace(user.UserName) && 
-                !string.IsNullOrWhiteSpace(user.Password) && 
+            if (!string.IsNullOrWhiteSpace(user.UserName) &&
+                !string.IsNullOrWhiteSpace(user.Password) &&
                 user.Password.Equals(user.UserName))
             {
                 List<Claim> claims = new List<Claim>()
@@ -32,7 +33,8 @@ namespace PurchaseService.Controllers
                 ClaimsIdentity identity = new ClaimsIdentity(claims, "local", "type", "role");
                 await HttpContext.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(identity));
             }
-            return new JsonResult(new {
+            return new JsonResult(new
+            {
                 Status = (int)HttpStatusCode.OK,
                 Message = "logged in"
             });

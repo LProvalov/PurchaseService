@@ -16,7 +16,6 @@
     <ApplicationInsightsResourceId>/subscriptions/34cf4fcd-28ed-425b-90f8-b9f428b3d678/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/PurchaseService</ApplicationInsightsResourceId>
   </PropertyGroup>
   <ItemGroup>
-    <DnxInvisibleContent Include="bower.json" />
     <DnxInvisibleContent Include=".bowerrc" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
