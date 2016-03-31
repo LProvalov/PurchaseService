@@ -18,11 +18,9 @@
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
 <body ng-app="purchase" ng-strict-di>
-    @if (User.Identity.IsAuthenticated)
-    {
-        <div class="navbar navbar-inverse navbar-fixed-top">
-        </div>
-    }
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        @Html.Partial("_LoginPartial")
+    </div>
     <div class="container body-content">
         @RenderBody()
     </div>
