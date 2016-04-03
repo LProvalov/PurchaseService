@@ -5,19 +5,24 @@
   },
 
   "dependencies": {
-    "EntityFramework.Commands": "7.0.0-beta1",
+    "EntityFramework.Commands": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
-    "Microsoft.ApplicationInsights.AspNet": "1.0.0-rc1-update2",
-    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
-    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final",
     "Microsoft.AspNet.Identity": "3.0.0-rc1-final",
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
+    "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta4",
+    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+    "Microsoft.Extensions.CodeGenerators.Mvc": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
+    "Microsoft.ApplicationInsights.AspNet": "1.0.0-rc1"
+  },
+
+  "_commentedDependencies": {
     "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
     "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
@@ -29,6 +34,7 @@
 
   "commands": {
     "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://localhost:5000",
+    "gen": "Microsoft.Framework.Codegeneration",
     "ef": "EntityFramework.Commands"
   },
 
@@ -39,7 +45,8 @@
 
   "exclude": [
     "wwwroot",
-    "node_modules"
+    "node_modules",
+    "bower_components"
   ],
   "publishExclude": [
     "**.user",

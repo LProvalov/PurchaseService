@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "User Login";
+    ViewData["Title"] = "Log in";
 }
 @model PurchaseService.Models.Login
 <div class="purchase-login">
@@ -29,7 +29,8 @@
                                     <input type="submit" value="Log in" class="btn btn-submit"/>
                                 </div>
                                 <div class="form-group">
-                                    <a href="" class="small">Forgot password?</a>
+                                    <p><a href="" class="small">Forgot password?</a></p>
+                                    <p><a asp-action="Register">Register as a new user?</a></p>
                                 </div>
                             </form>
                             <div id="content"></div>
