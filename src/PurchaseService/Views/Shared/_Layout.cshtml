@@ -15,22 +15,27 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
 <body ng-app="purchase" ng-strict-di>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <ul class="nav navbar-nav">
-            <li><a rel="nofollow" target="_blank" href="@Url.Action("Index", "Home")">Home</a></li>
-            <li><a rel="nofollow" target="_blank" href="@Url.Action("Index", "Person")">Person</a></li>
-            <li><a rel="nofollow" target="_blank" href="@Url.Action("Register", "Account")">Register</a></li>
-            <li><a rel="nofollow" target="_blank" href="@Url.Action("Login", "Account")">Login</a></li>
-        </ul>
-        @Html.Partial("_LoginPartial")
-    </div>
-    <div class="container body-content">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav ">
+                        <li><a rel="nofollow" target="_self" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a rel="nofollow" target="_self" href="@Url.Action("Index", "Person")">Person</a></li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+    }
+
+    <div class="container">
         @RenderBody()
     </div>
-
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

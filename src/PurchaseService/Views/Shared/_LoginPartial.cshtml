@@ -1,8 +1,14 @@
 ﻿@using Microsoft.AspNet.Identity;
 @if (User.Identity.IsAuthenticated)
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>Hello, @User.Identity.Name!</li>
+    <form asp-controller="Account" asp-action="LogOff" asp-route-method="post"
+          class="navbar-form navbar-right" role="spinbutton">
+        <button type="submit" class="btn btn-success">
+            <i class="glyphicon glyphicon-log-out"></i> Log Off
+        </button>
+    </form>
+    <ul class="nav navbar-nav navbar-right" style="color:white;">
+        <li><a href="#">Hello, @User.Identity.Name!</a></li>
     </ul>
 }
 

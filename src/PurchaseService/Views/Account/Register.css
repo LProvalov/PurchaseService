@@ -1,4 +1,4 @@
-﻿.purchase-login {
+﻿.purchase-register {
     height: 100%;
     margin-top: 5em;
     display: table;
@@ -6,7 +6,7 @@
     background: #ffffff;
 }
 
-    .purchase-login .form-login {
+    .purchase-register .form-register {
         margin: 0 auto;
         height: 100%;
         display: table;
@@ -16,50 +16,34 @@
         max-width: 300px;
     }
 
-    .purchase-login .logo {
-        text-align: center;
-        display: table-row;
-    }
-
-        .purchase-login .logo img {
-            margin-top: 50px;
-        }
-
-    .purchase-login .user-login-panel {
-        display: table-row;
-    }
-
-    .purchase-login .login-key-icon {
-        padding: 45px 0px 45px 10px;
-    }
-
-    .purchase-login .panel {
+    .purchase-register .panel {
         background: #f4f4f4;
         border: 1px solid #f0f0f0;
         box-shadow: 0 4px 4px #d9d9d9;
     }
 
-    .purchase-login .panel-body {
+    .purchase-register .panel-body {
         margin: 0 auto;
     }
 
-    .purchase-login h3 {
+    .purchase-register h3 {
         margin: 20px 0;
         font-size: 18px;
         color: #545454;
         text-align: left;
     }
 
-    .purchase-login .btn-submit,
-    .purchase-login .btn-submit:hover {
+    .purchase-register .btn-submit,
+    .purchase-register .btn-submit:hover {
         color: #ffffff;
         background-color: #549954;
         border: none;
         min-width: 100%;
     }
 
+
 @media (min-width:992px) {
-    .purchase-login .form-login {
+    .purchase-register .form-register {
         min-width: 600px;
         max-width: 600px;
     }

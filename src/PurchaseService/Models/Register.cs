@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace PurchaseService.Models
 {
@@ -22,5 +23,10 @@ namespace PurchaseService.Models
         [Compare("Password", 
             ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Invitation Number")]
+        public Guid InvitationNumber { get; set; }
     }
 }

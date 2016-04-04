@@ -3,6 +3,7 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Identity;
 using PurchaseService.Models;
+using System;
 
 namespace PurchaseService.Controllers
 {
@@ -29,7 +30,8 @@ namespace PurchaseService.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(Register model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && 
+                model.InvitationNumber.CompareTo(new Guid("5eaaf58a-e8be-4fe2-93b4-c71f1afb5463")) == 0)
             {
                 var user = new ApplicationUser
                 {
@@ -43,7 +45,6 @@ namespace PurchaseService.Controllers
                     return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
             }
-
             return View(model);
         }
 

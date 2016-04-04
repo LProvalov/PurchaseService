@@ -1,4 +1,6 @@
-
+.container .body-content {
+    padding-bottom: 70px;
+}
 .purchase-login {
     height: 100%;
     margin-top: 5em;
@@ -13,8 +15,8 @@
         display: table;
         table-layout: fixed;
         float: none;
-        min-width: 400px;
-        max-width: 400px;
+        min-width: 300px;
+        max-width: 300px;
     }
 
     .purchase-login .logo {
@@ -56,11 +58,62 @@
         color: #ffffff;
         background-color: #549954;
         border: none;
-        min-width: 100px;
+        min-width: 100%;
     }
 
 @media (min-width:992px) {
     .purchase-login .form-login {
+        min-width: 600px;
+        max-width: 600px;
+    }
+}
+
+.purchase-register {
+    height: 100%;
+    margin-top: 5em;
+    display: table;
+    width: 100%;
+    background: #ffffff;
+}
+
+    .purchase-register .form-register {
+        margin: 0 auto;
+        height: 100%;
+        display: table;
+        table-layout: fixed;
+        float: none;
+        min-width: 300px;
+        max-width: 300px;
+    }
+
+    .purchase-register .panel {
+        background: #f4f4f4;
+        border: 1px solid #f0f0f0;
+        box-shadow: 0 4px 4px #d9d9d9;
+    }
+
+    .purchase-register .panel-body {
+        margin: 0 auto;
+    }
+
+    .purchase-register h3 {
+        margin: 20px 0;
+        font-size: 18px;
+        color: #545454;
+        text-align: left;
+    }
+
+    .purchase-register .btn-submit,
+    .purchase-register .btn-submit:hover {
+        color: #ffffff;
+        background-color: #549954;
+        border: none;
+        min-width: 100%;
+    }
+
+
+@media (min-width:992px) {
+    .purchase-register .form-register {
         min-width: 600px;
         max-width: 600px;
     }

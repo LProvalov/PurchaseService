@@ -5,36 +5,45 @@
     ViewData["Title"] = "Register";
 }
 
-<h2>@ViewData["Title"].</h2>
-
-<form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal" role="form">
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    <div class="text-danger">
-        
-    </div>
-    <div class="form-group">
-        <div class="col-md-10">
-            <input asp-for="Email" type="text" class="form-control" placeholder="Email" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+<div class="purchase-register">
+    <div class="col-xs-10 col-sm-7 col-md-5 col-lg-5 form-register">
+        <div class="register-panel">
+            <div class="panel panel-register">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <h3>User Registration / Create a new account.</h3>
+                            <form asp-controller="Account" asp-action="Register" method="post" role="form">
+                                
+                                <div class="text-danger">
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="Email" type="text" class="form-control" placeholder="Example@email.com" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="ConfirmPassword" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="InvitationNumber" type="text" class="form-control" placeholder="InvitationNumber" />
+                                    <span asp-validation-for="InvitationNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Register" class="btn btn-submit" />
+                                </div>
+                                <div class="form-group">
+                                    <p><a asp-action="Login" class="small">Log in?</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-md-10">
-            <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-10">
-            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="ConfirmPassword" />
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Register" class="btn btn-submit" />
-        </div>
-    </div>
-</form>
+</div>
