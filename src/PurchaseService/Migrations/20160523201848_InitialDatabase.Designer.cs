@@ -8,8 +8,8 @@ using PurchaseService.Models;
 namespace PurchaseService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20160403124831_Initial")]
-    partial class Initial
+    [Migration("20160523201848_InitialDatabase")]
+    partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

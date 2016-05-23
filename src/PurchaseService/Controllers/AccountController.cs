@@ -7,6 +7,7 @@ using System;
 
 namespace PurchaseService.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _securityManager;
@@ -30,8 +31,8 @@ namespace PurchaseService.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(Register model)
         {
-            if (ModelState.IsValid && 
-                model.InvitationNumber.CompareTo(new Guid("5eaaf58a-e8be-4fe2-93b4-c71f1afb5463")) == 0)
+            if (ModelState.IsValid /*&& 
+                model.InvitationNumber.CompareTo(new Guid("5eaaf58a-e8be-4fe2-93b4-c71f1afb5463")) == 0*/)
             {
                 var user = new ApplicationUser
                 {
