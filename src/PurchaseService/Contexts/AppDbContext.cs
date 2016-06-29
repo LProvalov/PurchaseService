@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
+using PurchaseService.Models;
 
-namespace PurchaseService.Models
+namespace PurchaseService.Contexts
 {
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {

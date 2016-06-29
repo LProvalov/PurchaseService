@@ -4,7 +4,11 @@
 <div class="purchase-home">
     <div class="row">
         <div class="col-md-12">
-            <img class="under-construction-img img-responsive center-block" src="~/images/Under-construction.png" />
+            @*<img class="under-construction-img img-responsive center-block" src="~/images/Under-construction.png" />*@
+            <div class="global-menu">
+                <div><a href="@Url.Action("Index", "House")">Home</a></div>
+                <div><a href="@Url.Action("Index", "Store")">Store</a></div>
+            </div>
         </div>
     </div>
 </div>
